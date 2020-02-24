@@ -1,55 +1,46 @@
 {
   "name": "management_platform",
-  "description": "application created by thinkjs",
   "version": "1.0.0",
-  "author": "frankwong <frankwong96@qq.com>",
-  "scripts": {
-    "start": "node development.js",
-    "test": "THINK_UNIT_TEST=1 nyc ava test/ && nyc report --reporter=html",
-    "compile": "babel --no-babelrc src/ --presets think-node --out-dir app/",
-    "lint": "eslint src/",
-    "lint-fix": "eslint --fix src/"
+  "description": "",
+  "private": true,
+  "egg": {
+    "declarations": true
   },
   "dependencies": {
-    "think-cache": "^1.0.0",
-    "think-session": "^1.0.0",
-    "think-cache-file": "^1.0.8",
-    "think-model": "^1.0.0",
-    "think-session-file": "^1.0.5",
-    "think-view": "^1.0.0",
-    "think-view-nunjucks": "^1.0.1",
-    "think-model-mysql": "^1.0.0",
-    "think-logger3": "^1.0.0",
-    "thinkjs": "^3.0.0"
+    "egg": "^2.15.1",
+    "egg-scripts": "^2.11.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-preset-think-node": "^1.0.0",
-    "node-notifier": "^5.0.2",
-    "think-inspect": "0.0.2",
-    "think-babel": "^1.0.3",
-    "think-watcher": "^3.0.0",
-    "eslint": "^4.2.0",
-    "eslint-config-think": "^1.0.0",
-    "ava": "^0.18.0",
-    "nyc": "^7.0.0"
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg-bin": "^4.11.0",
+    "egg-ci": "^1.11.0",
+    "egg-mock": "^3.21.0",
+    "eslint": "^5.13.0",
+    "eslint-config-egg": "^7.1.0"
   },
-  "repository": "",
-  "license": "MIT",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=10.0.0"
   },
-  "readmeFilename": "README.md",
-  "thinkjs": {
-    "metadata": {
-      "name": "management_platform",
-      "description": "application created by thinkjs",
-      "author": "frankwong <frankwong96@qq.com>",
-      "babel": true
-    },
-    "projectName": "management_platform",
-    "template": "/usr/local/lib/node_modules/think-cli/default_template",
-    "clone": false,
-    "isMultiModule": false
-  }
+  "scripts": {
+    "start": "egg-scripts start --daemon --title=egg-server-management_platform",
+    "stop": "egg-scripts stop --title=egg-server-management_platform",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
+  },
+  "ci": {
+    "version": "10"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "frank",
+  "license": "MIT"
 }
