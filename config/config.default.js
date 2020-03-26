@@ -22,7 +22,7 @@ module.exports = appInfo => {
 
   // add your user config here
   const userConfig = {
-    // myAppName: 'egg',
+    renderType: 'csr' // 渲染方式
   };
 
   return {

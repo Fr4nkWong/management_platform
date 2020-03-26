@@ -2,9 +2,13 @@
 
 ### Tech Stack
 
-vue + vue-router + vuex
-egg + mysql + redis
-webpack + babel + eslint
+``` bash
+browser: vue + vue-router + vuex
+server: egg + mysql + redis
+lib: moment + axios
+dev tool: webpack + babel + eslint
+deploy: nginx + docker
+```
 
 ### Development
 
