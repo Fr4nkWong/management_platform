@@ -1,10 +1,11 @@
 # management_platform
 
 ### Tech Stack
-
+```
 vue + vue-router + vuex
 egg + mysql + redis
 webpack + babel + eslint
+```
 
 ### Development
 
