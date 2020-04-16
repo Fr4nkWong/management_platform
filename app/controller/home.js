@@ -11,7 +11,7 @@ class HomeController extends Controller {
   */
   async index() {
     const { ctx, config } = this;
-    if(config.renderType == 'ssr') {
+    if (config.renderType === 1) {
       this.serverRender();
     } else {
       this.clientRender();
@@ -19,21 +19,21 @@ class HomeController extends Controller {
   }
 
   async serverRender() {
-    const renderer = VueSSR.createRenderer({
-      template: fs.readFileSync(`${__dirname}/../public/main.html`, {
-        encoding: 'utf-8'
-      })
-    });
-    renderer.renderToString(app, (err, html) => {
-      console.log(html);
-    });
+    // const renderer = VueSSR.createRenderer({
+    //   template: fs.readFileSync(`${__dirname}/../public/dist/main.html`, {
+    //     encoding: 'utf-8',
+    //   }),
+    // });
+    // renderer.renderToString(app, (err, html) => {
+    //   console.log(html);
+    // });
   }
 
   async clientRender() {
     const { ctx } = this;
     const html = fs.readFileSync(`${__dirname}/../public/main.html`, {
-      encoding: 'utf-8'
-    })
+      encoding: 'utf-8',
+    });
     ctx.body = html;
   }
 }

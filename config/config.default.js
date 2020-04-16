@@ -22,7 +22,7 @@ module.exports = appInfo => {
 
   // add your user config here
   const userConfig = {
-    renderType: 'csr' // 渲染方式
+    renderType: 0, // 0:客户端渲染 1:服务端渲染
   };
 
   return {

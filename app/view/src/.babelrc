@@ -1,0 +1,15 @@
+{
+	"presets": [ // 转码规则
+		["@babel/preset-env",{
+			"useBuiltIns": "usage",
+      "targets": {
+        "browsers": [">1%", "last 2 versions", "not ie<=8"]
+      }
+		}]
+	],
+	"plugins": [ // 插件
+		["@babel/plugin-transform-runtime", {
+      "corejs": 2
+    }]
+	]
+}
