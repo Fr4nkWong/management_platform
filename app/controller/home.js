@@ -2,8 +2,11 @@
 
 const Controller = require('egg').Controller;
 const fs = require('fs');
+const path = require('path');
 const Vue = require('vue');
 const VueSSR = require('vue-server-renderer');
+
+const appRoot = path.resolve(__dirname, '../');
 
 class HomeController extends Controller {
   /*
@@ -31,7 +34,7 @@ class HomeController extends Controller {
 
   async clientRender() {
     const { ctx } = this;
-    const html = fs.readFileSync(`${__dirname}/../public/dist/index.html`, {
+    const html = fs.readFileSync(`${appRoot}/public/dist/index.html`, {
       encoding: 'utf-8',
     });
     ctx.body = html;

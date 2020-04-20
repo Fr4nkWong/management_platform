@@ -44,6 +44,7 @@ module.exports = {
             },
           },
         ],
+        exclude: /node_modules/,
       },
       {
         test: /\.(css)$/,
@@ -53,8 +54,6 @@ module.exports = {
             loader: 'css-loader',
             options: {
               importLoaders: 1, // 引入样式也要走下面2个loader
-              modules: true, // css模块化打包，css引入解耦
-              sourceMap: true,
             },
           },
           {
@@ -75,6 +74,7 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
+              importLoaders: 1,
               modules: true, // css模块化打包，css引入解耦
               sourceMap: true,
             },
@@ -88,12 +88,7 @@ module.exports = {
               ],
             },
           },
-          {
-            loader: 'less-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
+          'less-loader',
         ],
       },
       {
