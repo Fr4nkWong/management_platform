@@ -1,0 +1,5 @@
+{
+	"presets": [ // 转码规则
+		"@vue/cli-plugin-babel/preset"
+	]
+}

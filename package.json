@@ -7,7 +7,7 @@
     "declarations": true
   },
   "dependencies": {
-    "@babel/polyfill": "^7.8.7",
+    "core-js": "^3.6.5",
     "egg": "^2.15.1",
     "egg-scripts": "^2.11.0",
     "vue": "^2.6.11",
@@ -17,9 +17,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@babel/plugin-transform-runtime": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
-    "@babel/runtime": "^7.9.2",
+    "@babel/register": "^7.9.0",
+    "@vue/cli-plugin-babel": "^4.3.1",
+    "@vue/cli-service": "^4.3.1",
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
     "autoprefixer": "^9.7.6",
@@ -35,8 +35,12 @@
     "less": "^3.11.1",
     "less-loader": "^5.0.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
+    "script-ext-html-webpack-plugin": "^2.1.4",
+    "terser-webpack-plugin": "^2.3.5",
     "vue-loader": "^15.9.1",
+    "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
@@ -47,7 +51,7 @@
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-management_platform",
     "stop": "egg-scripts stop --title=egg-server-management_platform",
-    "dev": "npx webpack --config ./config/webpack.config.dev.js && egg-bin dev",
+    "dev": "egg-bin dev",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
@@ -55,7 +59,8 @@
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
     "autod": "autod",
-    "bundle": "npx webpack --config ./config/webpack.config.prod.js"
+    "bundle.dev": "npx webpack --config ./web/webpack.config.dev.js",
+    "bundle.prod": "npx webpack --config ./web/webpack.config.prod.js"
   },
   "ci": {
     "version": "10"

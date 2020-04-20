@@ -31,7 +31,7 @@ class HomeController extends Controller {
 
   async clientRender() {
     const { ctx } = this;
-    const html = fs.readFileSync(`${__dirname}/../public/main.html`, {
+    const html = fs.readFileSync(`${__dirname}/../public/dist/index.html`, {
       encoding: 'utf-8',
     });
     ctx.body = html;
